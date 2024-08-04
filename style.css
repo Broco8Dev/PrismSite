@@ -1,13 +1,37 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: "Inter", sans-serif;
 	font-style: normal;
 	/* background: #070b0c; */
 	color: #ffffff;
 	overflow-x: hidden;
+	
 	overflow-x: hidden;
 	overflow-y: scroll;
+}
+
+:root {
+	--text-color: rgb(32, 32, 32);
+	--table-bg: rgb(255, 255, 255);
+	--shadow-color: rgba(0, 0, 0, 0.096);
+	--button-bg: rgba(0,122,255,255);
+}
+
+@font-face {
+	font-family: 'SF Pro';
+	src: url('SF-Pro.ttf') format('truetype');
+	font-stretch: 0 1000;
+	font-weight: 100 900;
+	font-style: normal;
+}
+
+* {
+	font-family: 'SF Pro', sans-serif;
+	color: var(--text-color);
+	margin: 0;
+	animation: auto;
+	text-decoration: none;
+
 }
 
 body::-webkit-scrollbar {
@@ -16,17 +40,20 @@ body::-webkit-scrollbar {
 
 .twitter-selector {
 	position: absolute;
-	border: 1px solid rgba(255, 255, 255, 0.543);
-	backdrop-filter: blur(50px);
+	background-color: var(--table-bg);
 	border-radius: 15px;
 	padding: 10px;
 	z-index: 1000;
-	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.333);
+	box-shadow: 0px 10px 10px var(--shadow-color);
 	opacity: 0;
 	pointer-events: none;
 	transition: all 0.3s ease;
 	transform: translateY(0px);
 	margin-left: 40px;
+}
+
+h2 {
+	color: black;
 }
 
 .twitter-selector.show {
@@ -40,15 +67,18 @@ body::-webkit-scrollbar {
 	width: 100%;
 	padding: 5px 10px;
 	margin-bottom: 5px;
-	border: 1.5px dashed rgba(142, 142, 142, 0.491);
-	background-color: rgba(83, 83, 83, 0.347);
-	border-radius: 10px;
+	background-color: var(--button-bg);
+	border-radius: 50px;
+	border: none;
 	cursor: pointer;
-	color: rgba(255, 255, 255, 0.642);
+	color: white;
+	font-weight: 500;
 }
 
 .context-buttons-hstack {
 	display: flex;
+	margin-bottom: 2px;
+	margin-top: 10px;
 	justify-content: center;
 	align-items: center;
 	flex-direction: row;
@@ -68,39 +98,33 @@ body::-webkit-scrollbar {
 
 .context h1 {
 	text-align: center;
-	background: -webkit-linear-gradient(45deg, #eee, #8a8a8a, #eee);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
 	font-size: 90px;
 	font-weight: 600;
-	letter-spacing: -3px;
+	color: var(--text-color);
 	text-shadow: 0px 0px 40px rgba(255, 255, 255, 0.244);
 	background-size: 200% auto;
-	animation: shine 5s linear infinite;
-	margin-bottom: -6px;
+	margin-bottom: -15px;
 	margin-top: 0;
 }
 
 .context-img {
 	width: 100px;
 	height: auto;
-	border-radius: 11px;
+	border-radius: 22px;
 	margin-bottom: 10px;
-	box-shadow: 0px 0px 40px rgba(37, 39, 62, 0.792);
+	box-shadow: 0px 4px 10px var(--shadow-color);
 }
 
 .context h2 {
 	margin-top: 0;
+	color: var(--text-color);
 	text-align: center;
-	background: -webkit-linear-gradient(45deg, #b5b5b5, #777777, #b5b5b5);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+
 	font-size: 30px;
 	font-weight: 600;
-	letter-spacing: -1.5px;
+	margin-bottom: 10px;
 	text-shadow: 0px 0px 40px rgba(255, 255, 255, 0.244);
 	background-size: 200% auto;
-	animation: shine 5s linear infinite;
 }
 
 .info {
@@ -113,9 +137,17 @@ body::-webkit-scrollbar {
 	flex-direction: column;
 	position: relative;
 	top: 230px;
-	backdrop-filter: blur(50px);
+	background-color: var(--table-bg);
 	margin-top: 50px;
 	width: 650px;
+
+	box-shadow: 0px 4px 10px var(--shadow-color);
+}
+
+.info-point h2 {
+	margin-top: 10px;
+
+	
 }
 
 .info-points {
@@ -128,12 +160,14 @@ body::-webkit-scrollbar {
 	flex-direction: column;
 	position: relative;
 	top: 230px;
-	backdrop-filter: blur(50px);
+	background-color: var(--table-bg);
 	margin-top: 50px;
+	box-shadow: 0px 4px 10px var(--shadow-color);
 	width: 650px;
 }
 
 .info-point-groups {
+	
 	flex-direction: row;
 	display: flex;
 	justify-content: space-between;
@@ -141,15 +175,15 @@ body::-webkit-scrollbar {
 }
 
 .info-point-group {
+	background-image: linear-gradient(to bottom, rgba(62,193,249,255), rgba(8,134,243,255));
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	text-align: center;
-	border: 2px dashed rgba(142, 142, 142, 0.491);
+	
 	padding: 20px;
 	border-radius: 15px;
-	background-color: rgba(83, 83, 83, 0.347);
 	margin-right: 10px;
 	transition: all 0.3s ease;
 	cursor: pointer;
@@ -168,9 +202,8 @@ body::-webkit-scrollbar {
 
 .info-point-icon {
 	font-size: 60px;
-	background: -webkit-linear-gradient(45deg, #eee, #8a8a8a, #eee);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	
+	color: white;
 	text-shadow: 0px 0px 40px rgba(255, 255, 255, 0.244);
 	background-size: 200% auto;
 }
@@ -183,44 +216,69 @@ body::-webkit-scrollbar {
 		'opsz' 24
 }
 
+.button-group {
+	box-shadow: 0px 4px 10px var(--shadow-color);
+	background-color: var(--table-bg);
+	padding: 10px;
+	border-radius: 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 230px;
+}
+
+.socials {
+	box-shadow: 0px 4px 10px var(--shadow-color);
+	background-color: var(--table-bg);
+	padding: 10px;
+	border-radius: 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 230px;
+}
+
 .info-points h1 {
-	font-size: 35px;
-	letter-spacing: -1.5px;
+	font-size: 30px;
+	font-weight: 600;
 	margin-bottom: 10px;
 }
 
-.info-points h2 {
-	font-size: 20px;
+.info-point-group h2 {
+	font-size: 19px;
+
+	font-weight: 500;
+	color: rgb(255, 255, 255);
 }
 
 
+
+
 .info h1 {
-	font-size: 35px;
-	letter-spacing: -1.5px;
+	font-size: 30px;
+	font-weight: 600;
 	margin-bottom: 10px;
 }
 
 .info h2 {
 	font-size: 20px;
+	
 }
 
 .context-button {
 	text-align: center;
-	background: -webkit-linear-gradient(45deg, #b5b5b5, #777777, #b5b5b5);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	letter-spacing: -1px;
+
+	background-color: var(--button-bg);
 	text-shadow: 0px 0px 40px rgba(255, 255, 255, 0.244);
-	background-size: 200% auto;
-	animation: shine 5s linear infinite;
+	color: white;
+
 	cursor: pointer;
-	border: 1px solid white;
-	font-weight: 300;
-	font-size: 19px;
-	font-weight: 500;
-	padding: 15px 30px 15px 30px;
+
+	font-size: 17px;
+	font-weight: 400;
+	padding: 13px 30px 13px 30px;
 	border-radius: 50px;
-	backdrop-filter: blur(50px);
+
 	transition: all 0.3s ease;
 	width: 95px;
 	height: 18px;
@@ -230,15 +288,14 @@ body::-webkit-scrollbar {
 }
 
 .context-button-slim {
-	box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.308);
+	
 	cursor: pointer;
-	border: 1px solid white;
 	font-size: 30px;
 	font-weight: 500;
-	padding: 11px;
+	padding: 9px;
 	border-radius: 50px;
-	backdrop-filter: blur(50px);
-	margin-left: 10px;
+	background-color: var(--button-bg);
+
 	transition: all 0.3s ease;
 	width: 30px;
 	height: 30px;
@@ -253,43 +310,31 @@ body::-webkit-scrollbar {
 
 .context-download-button {
 	text-align: center;
-	background: -webkit-linear-gradient(45deg, #f0f0f0, #ababab, #f0f0f0);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	letter-spacing: -1px;
-	box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.308);
-	background-size: 200% auto;
-	animation: shine 5s linear infinite;
+
+	color: white;
+
 	cursor: pointer;
-	border: 1px solid white;
-	font-size: 30px;
-	font-weight: 500;
-	padding: 11px;
+
+	font-size: 25px;
+	font-weight: 400;
+	padding: 7px;
+	width: 50px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
 	border-radius: 50px;
-	backdrop-filter: blur(50px);
-	margin-left: 10px;
+	background-color: var(--button-bg);
+
 	transition: all 0.3s ease;
 
 
 }
 
 .highlighted {
-	background: -webkit-linear-gradient(45deg, #e3e3e3, #bfbfbf, #e3e3e3);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+
 	text-shadow: 0px 0px 40px rgba(255, 255, 255, 0.498);
 	background-size: 200% auto;
 	animation: shine 5s linear infinite;
-}
-
-@keyframes shine {
-	0% {
-		background-position: 200% center;
-	}
-
-	100% {
-		background-position: -200% center;
-	}
 }
 
 .area {
@@ -460,27 +505,7 @@ div {
 		margin-bottom: 0;
 	}
 
-	.context-button {
-		font-size: 18px;
-		padding: 12px 24px;
-	}
 
-	.context-button-slim,
-	.context-download-button {
-		font-size: 24px;
-		padding: 8px;
-		width: 24px;
-		height: 24px;
-	}
-
-	.context-buttons-hstack {
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-
-	.context-buttons-hstack>* {
-		margin: 5px;
-	}
 
 	.circles li {
 		width: 10px;
