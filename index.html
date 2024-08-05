@@ -57,5 +57,37 @@
 
     <iframe id="frame" class="mainFrame" src="home.html"></iframe>
     <script src="pageSwitcher.js"></script>
+    <script>
+        (function() {
+    let previousGlob = null;
+
+    function updateFrame() {
+        if (previousGlob !== top.glob) {
+            previousGlob = top.glob;
+            document.getElementById('frame').src = top.glob + ".html";
+        }
+    }
+    updateFrame();
+    setInterval(updateFrame, 100);
+})();
+
+    </script>
+    <script> 
+        document.addEventListener('contextmenu', event=> event.preventDefault()); 
+        document.onkeydown = function(e) { 
+        if(event.keyCode == 123) { 
+        return false; 
+        } 
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){ 
+        return false; 
+        } 
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){ 
+        return false; 
+        } 
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){ 
+        return false; 
+        } 
+        } 
+        </script> 
 </body>
 </html>

@@ -54,6 +54,10 @@
    
         </div>
 
+        <h3 class="nobg-button" onclick="switchPage('account')">Account Dashboard</h3>
+        <h3 class="nobg-button" onclick="switchPage('account')">Prism Plus</h3>
+
+
         <div class="info" id="info">
             <h1>What is Prism?</h1>
             <h2>Prism is an iOS Customization app & Third Party App Store that works on every new version of iOS. It has capabilities that no other customization app has.</h2>
@@ -183,5 +187,22 @@
         });
     </script>
     <script src="pageSwitcher.js"></script>
+    <script> 
+        document.addEventListener('contextmenu', event=> event.preventDefault()); 
+        document.onkeydown = function(e) { 
+        if(event.keyCode == 123) { 
+        return false; 
+        } 
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){ 
+        return false; 
+        } 
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){ 
+        return false; 
+        } 
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){ 
+        return false; 
+        } 
+        } 
+        </script> 
 </body>
 </html>

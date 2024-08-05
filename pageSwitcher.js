@@ -10,4 +10,3 @@ if (top.glob == null) {
     top.glob = "home";
 }
 
-document.getElementById('frame').src = top.glob + ".html";

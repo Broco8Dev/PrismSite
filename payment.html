@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Checkout Example</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h1>Stripe Checkout Example</h1>
+    <button id="checkout-button">Checkout</button>
+
+    <script>
+        // Replace with your actual publishable key
+        const stripe = Stripe('YOUR_PUBLISHABLE_KEY');
+        const checkoutButton = document.getElementById('checkout-button');
+
+        checkoutButton.addEventListener('click', function() {
+            stripe.redirectToCheckout({
+                lineItems: [{
+                    price: 'PRICE_ID', // Replace with the ID of your price
+                    quantity: 1,
+                }],
+                mode: 'payment',
+                successUrl: 'https://your-website.com/success',
+                cancelUrl: 'https://your-website.com/cancel',
+            })
+            .then(function (result) {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(function(error) {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

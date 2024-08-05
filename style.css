@@ -4,10 +4,12 @@ body {
 	font-style: normal;
 	/* background: #070b0c; */
 	color: #ffffff;
-	overflow-x: hidden;
 	
-	overflow-x: hidden;
-	overflow-y: scroll;
+
+}
+
+html {
+	max-width: 100% !important;
 }
 
 :root {
@@ -115,6 +117,14 @@ h2 {
 	box-shadow: 0px 4px 10px var(--shadow-color);
 }
 
+.context-pfp {
+	width: 100px;
+	height: auto;
+	border-radius: 100px;
+	margin-bottom: 10px;
+	box-shadow: 0px 4px 10px var(--shadow-color);
+}
+
 .context h2 {
 	margin-top: 0;
 	color: var(--text-color);
@@ -142,6 +152,37 @@ h2 {
 	width: 650px;
 
 	box-shadow: 0px 4px 10px var(--shadow-color);
+}
+
+div {
+	transition: all 0.3s ease;
+	animation: loadIn 0.3s ease;
+}
+
+@keyframes loadIn {
+	from {
+	  transform: translateY(20px);
+	  filter: blur(2px);
+	}
+  
+	to {
+		transform: translateY(0);
+	}
+  }
+
+.nobg-button {
+	font-size: 15px;
+	font-weight: 500;
+	margin-top: 15px;
+	transition: all 0.3s ease;
+	color: var(--button-bg);
+	text-shadow: 0px 0px 20px var(--button-bg);
+	cursor: pointer;
+}
+
+.nobg-button:hover {
+	font-size: 16px;
+	filter: brightness(1.4);
 }
 
 .info-point h2 {
@@ -273,7 +314,7 @@ h2 {
 	color: white;
 
 	cursor: pointer;
-
+	border: none;
 	font-size: 17px;
 	font-weight: 400;
 	padding: 13px 30px 13px 30px;
